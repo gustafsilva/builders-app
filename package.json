@@ -6,21 +6,29 @@
     "start": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
-    "web": "expo start --web"
+    "web": "expo start --web",
+    "format:check": "prettier --check ./src",
+    "format:write": "prettier --write ./src",
+    "lint": "yarn run format:check && eslint src/**/**/**.ts*"
   },
   "dependencies": {
-    "expo": "~47.0.12",
-    "expo-status-bar": "~1.4.2",
+    "expo": "47.0.12",
+    "expo-status-bar": "1.4.2",
     "react": "18.1.0",
     "react-dom": "18.1.0",
     "react-native": "0.70.5",
-    "react-native-web": "~0.18.9"
+    "react-native-web": "0.18.9"
   },
   "devDependencies": {
-    "@babel/core": "^7.12.9",
-    "@types/react": "~18.0.14",
-    "@types/react-native": "~0.70.6",
-    "typescript": "^4.6.3"
+    "@babel/core": "7.12.9",
+    "@react-native-community/eslint-config": "3.2.0",
+    "@types/react": "18.0.14",
+    "@types/react-native": "0.70.6",
+    "@typescript-eslint/eslint-plugin": "5.48.1",
+    "eslint": "8.31.0",
+    "eslint-config-prettier": "8.6.0",
+    "prettier": "2.8.2",
+    "typescript": "4.6.3"
   },
   "private": true
 }
