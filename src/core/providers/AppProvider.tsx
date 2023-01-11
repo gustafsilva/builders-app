@@ -1,21 +1,14 @@
 import React from "react";
-import { StatusBar } from "expo-status-bar";
 import { ThemeProvider } from "@rneui/themed";
 
 import theme from "core/configs/theme";
-import Container from "core/components/Container";
 
-import MapScreen from "screens/MapScreen";
+interface AppProviderProps {
+  children: React.ReactNode;
+}
 
-function AppProvider() {
-  return (
-    <ThemeProvider theme={theme}>
-      <Container>
-        <MapScreen />
-        <StatusBar style="auto" />
-      </Container>
-    </ThemeProvider>
-  );
+function AppProvider({ children }: AppProviderProps) {
+  return <ThemeProvider theme={theme}>{children}</ThemeProvider>;
 }
 
 export default AppProvider;

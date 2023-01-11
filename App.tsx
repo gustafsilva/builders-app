@@ -1,7 +1,7 @@
 import React from "react";
 
-import AppProvider from "./src/core/providers/AppProvider";
+import Application from "./src/Application";
 
 export default function App() {
-  return <AppProvider />;
+  return <Application />;
 }
