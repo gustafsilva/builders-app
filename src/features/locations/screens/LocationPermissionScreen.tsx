@@ -1,12 +1,15 @@
 import React from "react";
 import { PermissionStatus } from "expo-location";
-import { Button } from "@rneui/base";
-import { Text } from "@rneui/themed";
+import { LinearGradient } from "expo-linear-gradient";
 
 import SafeAreaContainer from "core/components/SafeAreaContainer";
 import Content from "core/components/Content";
 import ScrollContainer from "core/components/ScrollContainer";
 import Box from "core/components/Box";
+import Text from "core/components/Text";
+import Button from "core/components/Button";
+
+import LocationPermissionImage from "features/locations/components/LocationPermissionImage";
 
 interface LocationPermissionScreenProps {
   status: PermissionStatus;
@@ -18,26 +21,31 @@ function LocationPermissionScreen({
   requestLocationPermission,
 }: LocationPermissionScreenProps) {
   return (
-    <ScrollContainer>
-      <SafeAreaContainer>
-        <Content>
-          {status === PermissionStatus.DENIED ? (
-            <Text h3>Permissões de localização negada</Text>
-          ) : (
-            <>
-              <Box flex={1}>
-                <Text h3>Primeiro, precisamos acessar a localização</Text>
-                <Text h4>
-                  Sua localização ajuda nosso sistema a mapear seu endereço
-                  atual e os dados climáticos da sua região.
-                </Text>
-              </Box>
-              <Button onPress={requestLocationPermission}>Solicitar</Button>
-            </>
-          )}
-        </Content>
-      </SafeAreaContainer>
-    </ScrollContainer>
+    <LinearGradient colors={["#622FB5", "#1B0F36"]} style={{ flex: 1 }}>
+      <ScrollContainer>
+        <SafeAreaContainer>
+          <Content>
+            <Box justifyContent="center" alignItems="center">
+              <LocationPermissionImage />
+            </Box>
+            {status === PermissionStatus.DENIED ? (
+              <Text h3>Permissões de localização negada</Text>
+            ) : (
+              <>
+                <Box flex={1} pr={24}>
+                  <Text h2>Primeiro, precisamos acessar a localização</Text>
+                  <Text>
+                    Sua localização ajuda nosso sistema a mapear seu endereço
+                    atual e os dados climáticos da sua região.
+                  </Text>
+                </Box>
+                <Button onPress={requestLocationPermission}>Solicitar</Button>
+              </>
+            )}
+          </Content>
+        </SafeAreaContainer>
+      </ScrollContainer>
+    </LinearGradient>
   );
 }
 
