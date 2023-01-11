@@ -7,9 +7,9 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "format:check": "prettier --check ./src",
-    "format:write": "prettier --write ./src",
-    "lint": "yarn run format:check && eslint src/**/**/**.ts*"
+    "format:check": "prettier --check App.tsx ./src",
+    "format:write": "prettier --write App.tsx ./src",
+    "lint": "yarn run format:check && eslint App.tsx src/**/**/**.ts*"
   },
   "dependencies": {
     "@rneui/base": "4.0.0-rc.7",
