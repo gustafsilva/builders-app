@@ -14,9 +14,9 @@ function LoadingScreen() {
         flex={1}
         justifyContent="center"
         alignItems="center"
-        customStyle={{ backgroundColor: theme.colors.background }}
+        customStyle={{ backgroundColor: theme.colors.primary }}
       >
-        <Spinner />
+        <Spinner color={theme.colors.secondary} size="large" />
       </Box>
     </ScrollContainer>
   );
