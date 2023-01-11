@@ -2,6 +2,7 @@ import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { ThemeProvider } from "@rneui/themed";
 
+import FontsProvider from "core/providers/FontsProvider";
 import theme from "core/configs/theme";
 
 interface AppProviderProps {
@@ -10,9 +11,11 @@ interface AppProviderProps {
 
 function AppProvider({ children }: AppProviderProps) {
   return (
-    <NavigationContainer>
-      <ThemeProvider theme={theme}>{children}</ThemeProvider>
-    </NavigationContainer>
+    <ThemeProvider theme={theme}>
+      <FontsProvider>
+        <NavigationContainer>{children}</NavigationContainer>
+      </FontsProvider>
+    </ThemeProvider>
   );
 }
 
