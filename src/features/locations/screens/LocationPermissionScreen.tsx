@@ -20,6 +20,15 @@ function LocationPermissionScreen({
   status,
   requestLocationPermission,
 }: LocationPermissionScreenProps) {
+  const title =
+    status === PermissionStatus.DENIED
+      ? "Ops, as permissões de localização foi negada"
+      : "Primeiro, precisamos acessar a localização";
+  const description =
+    status === PermissionStatus.DENIED
+      ? "Sua localização ajuda nosso sistema a mapear seu endereço atual e os dados climáticos da sua região. Você deve permitir que o app possa acessar sua localização."
+      : "Sua localização ajuda nosso sistema a mapear seu endereço atual e os dados climáticos da sua região.";
+
   return (
     <LinearGradient colors={["#622FB5", "#1B0F36"]} style={{ flex: 1 }}>
       <ScrollContainer>
@@ -28,19 +37,17 @@ function LocationPermissionScreen({
             <Box justifyContent="center" alignItems="center">
               <LocationPermissionImage />
             </Box>
-            {status === PermissionStatus.DENIED ? (
-              <Text h3>Permissões de localização negada</Text>
-            ) : (
-              <>
-                <Box flex={1} pr={24}>
-                  <Text h2>Primeiro, precisamos acessar a localização</Text>
-                  <Text>
-                    Sua localização ajuda nosso sistema a mapear seu endereço
-                    atual e os dados climáticos da sua região.
-                  </Text>
-                </Box>
-                <Button onPress={requestLocationPermission}>Solicitar</Button>
-              </>
+            <Box flex={1} pr={24}>
+              <Text
+                h2={status === PermissionStatus.DENIED}
+                h3={status === PermissionStatus.UNDETERMINED}
+              >
+                {title}
+              </Text>
+              <Text>{description}</Text>
+            </Box>
+            {status === PermissionStatus.UNDETERMINED && (
+              <Button onPress={requestLocationPermission}>Solicitar</Button>
             )}
           </Content>
         </SafeAreaContainer>
