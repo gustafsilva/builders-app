@@ -25,6 +25,12 @@ module.exports = function (api) {
           allowUndefined: true,
         },
       ],
+      [
+        "babel-plugin-inline-import",
+        {
+          "extensions": [".svg"]
+        }
+      ],
       'react-native-reanimated/plugin',
     ],
   };
