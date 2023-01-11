@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "builders",
+    "name": "Builders",
     "slug": "builders",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -23,7 +23,7 @@
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#FFFFFF"
+        "backgroundColor": "#000000"
       }
     },
     "web": {
