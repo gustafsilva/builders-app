@@ -1,6 +1,7 @@
 import React from "react";
 
 import Container from "core/components/Container";
+
 import Map from "features/maps/components/Map";
 
 function MapScreen() {

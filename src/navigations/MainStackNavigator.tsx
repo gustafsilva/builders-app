@@ -3,7 +3,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import PATHS from "navigations/PATHS.json";
 
-import MapScreen from "screens/MapScreen";
+import MapScreen from "features/maps/screens/MapScreen";
 
 const Stack = createNativeStackNavigator();
 
