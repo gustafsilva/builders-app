@@ -1,13 +1,13 @@
 import React from "react";
-import { View } from "react-native";
 
+import Container from "core/components/Container";
 import Map from "features/maps/components/Map";
 
 function MapScreen() {
   return (
-    <View>
+    <Container>
       <Map />
-    </View>
+    </Container>
   );
 }
 

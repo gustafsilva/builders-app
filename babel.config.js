@@ -10,6 +10,7 @@ module.exports = function(api) {
             core: "./src/core",
             features: "./src/features",
             screens: "./src/screens",
+            navigations: "./src/navigations",
           },
         },
       ],
