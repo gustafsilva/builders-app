@@ -1,15 +1,19 @@
 import React from "react";
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, View } from "react-native";
+import { ThemeProvider } from "@rneui/themed";
 
+import theme from "core/configs/theme";
 import MapScreen from "screens/MapScreen";
 
 function AppProvider() {
   return (
-    <View style={styles.container}>
-      <MapScreen />
-      <StatusBar style="auto" />
-    </View>
+    <ThemeProvider theme={theme}>
+      <View style={styles.container}>
+        <MapScreen />
+        <StatusBar style="auto" />
+      </View>
+    </ThemeProvider>
   );
 }
 
