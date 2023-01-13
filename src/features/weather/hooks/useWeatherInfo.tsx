@@ -1,44 +1,52 @@
-import { handleGenericError } from "core/helpers/errors";
 import React from "react";
 
-import requestWeatherInfo, {
-  Coords,
+import { handleGenericError } from "core/helpers/errors";
+
+import { useLocationStore } from "features/location/store";
+import getWeatherInfo, {
   WeatherInfoResponse,
-} from "features/weather/services/requestWeatherInfo";
+} from "features/weather/services/getWeatherInfo";
 
 function useWeatherInfo() {
+  const { currentPositionStore } = useLocationStore();
+
   const [weatherInfo, setWeatherInfo] =
     React.useState<WeatherInfoResponse | null>(null);
   const [loading, setLoading] = React.useState(false);
 
-  const getWeatherInfo = React.useCallback(
-    async (coords: Coords) => {
-      if (loading) {
-        return;
+  const requestWeatherInfo = React.useCallback(async () => {
+    if (loading || currentPositionStore.loading) {
+      return;
+    }
+
+    try {
+      setLoading(true);
+      await currentPositionStore.refresh();
+      if (currentPositionStore.coords === null) {
+        throw new Error("Error requesting the current position");
       }
 
-      try {
-        setLoading(true);
-        const response = await requestWeatherInfo(coords);
-        if (response) {
-          setWeatherInfo(response);
-        }
-      } catch (error) {
-        handleGenericError(error);
-      } finally {
-        setLoading(false);
+      const response = await getWeatherInfo(currentPositionStore.coords);
+
+      if (response === null) {
+        throw new Error("Error requesting the weather info");
       }
-    },
-    [loading]
-  );
+
+      setWeatherInfo(response);
+    } catch (error) {
+      handleGenericError(error);
+    } finally {
+      setLoading(false);
+    }
+  }, [loading]);
 
   return React.useMemo(
     () => ({
       weatherInfo,
       loading,
-      getWeatherInfo,
+      requestWeatherInfo,
     }),
-    [weatherInfo, loading, getWeatherInfo]
+    [weatherInfo, loading, requestWeatherInfo]
   );
 }
 
