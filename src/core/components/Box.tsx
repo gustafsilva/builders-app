@@ -7,7 +7,7 @@ import {
   ViewStyle,
 } from "react-native";
 
-type Spacing = number | "view" | "card";
+import { Spacing, calculateSpacing } from "core/helpers/spacing";
 
 interface BoxProps extends ViewProps {
   m?: Spacing;
@@ -46,21 +46,21 @@ interface BoxProps extends ViewProps {
 
 function Box(props: BoxProps) {
   const style: StyleProp<ViewStyle> = {
-    margin: props.m,
-    marginTop: props.mt,
-    marginBottom: props.mb,
-    marginRight: props.mr,
-    marginLeft: props.ml,
-    marginVertical: props.mv,
-    marginHorizontal: props.mh,
+    margin: calculateSpacing(props.m),
+    marginTop: calculateSpacing(props.mt),
+    marginBottom: calculateSpacing(props.mb),
+    marginRight: calculateSpacing(props.mr),
+    marginLeft: calculateSpacing(props.ml),
+    marginVertical: calculateSpacing(props.mv),
+    marginHorizontal: calculateSpacing(props.mh),
 
-    padding: props.p,
-    paddingTop: props.pt,
-    paddingBottom: props.pb,
-    paddingRight: props.pr,
-    paddingLeft: props.pl,
-    paddingVertical: props.pv,
-    paddingHorizontal: props.ph,
+    padding: calculateSpacing(props.p),
+    paddingTop: calculateSpacing(props.pt),
+    paddingBottom: calculateSpacing(props.pb),
+    paddingRight: calculateSpacing(props.pr),
+    paddingLeft: calculateSpacing(props.pl),
+    paddingVertical: calculateSpacing(props.pv),
+    paddingHorizontal: calculateSpacing(props.ph),
 
     justifyContent: props.justifyContent,
     alignItems: props.alignItems,
