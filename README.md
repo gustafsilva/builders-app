@@ -49,6 +49,7 @@ Formata os arquivos utilizando o prettier.
 - [Expo](https://expo.dev/)
 - [ESlint](https://eslint.org/)
 - [Prettier](https://prettier.io/)
+- [MobX](https://mobx.js.org/)
 
 ## Licença
 
