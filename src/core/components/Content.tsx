@@ -2,7 +2,7 @@ import Styled from "styled-components/native";
 
 const Content = Styled.View`
   flex: 1;
-  margin: 18px 18px;
+  margin: 16px 16px;
 `;
 
 export default Content;
