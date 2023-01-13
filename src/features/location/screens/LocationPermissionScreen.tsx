@@ -1,9 +1,7 @@
 import React from "react";
 import { PermissionStatus } from "expo-location";
 
-import LinearGradientContainer from "core/components/LinearGradientContainer";
-import ScrollContainer from "core/components/ScrollContainer";
-import SafeAreaContainer from "core/components/SafeAreaContainer";
+import ScrollScreenLayout from "core/layouts/ScrollScreenLayout";
 import Content from "core/components/Content";
 import Box from "core/components/Box";
 import Text from "core/components/Text";
@@ -30,31 +28,29 @@ function LocationPermissionScreen({
       : "☀️ Sua localização ajuda nosso sistema a mapear seu endereço atual e os dados climáticos da sua região.";
 
   return (
-    <LinearGradientContainer>
-      <ScrollContainer>
-        <SafeAreaContainer>
-          <Content>
-            <Box justifyContent="center" alignItems="center">
-              <LocationPermissionImage />
-            </Box>
+    <ScrollScreenLayout>
+      <Content>
+        <Box justifyContent="center" alignItems="center">
+          <LocationPermissionImage />
+        </Box>
 
-            <Box flex={1} pr={24}>
-              <Text
-                h2={status === PermissionStatus.DENIED}
-                h3={status === PermissionStatus.UNDETERMINED}
-              >
-                {title}
-              </Text>
-              <Text>{description}</Text>
-            </Box>
+        <Box flex={1} pr={24}>
+          <Text
+            h2={status === PermissionStatus.DENIED}
+            h3={status === PermissionStatus.UNDETERMINED}
+          >
+            {title}
+          </Text>
+          <Text>{description}</Text>
+        </Box>
 
-            {status === PermissionStatus.UNDETERMINED && (
-              <Button onPress={requestLocationPermission}>Solicitar</Button>
-            )}
-          </Content>
-        </SafeAreaContainer>
-      </ScrollContainer>
-    </LinearGradientContainer>
+        {status === PermissionStatus.UNDETERMINED && (
+          <Button onPress={requestLocationPermission} size="lg">
+            Solicitar
+          </Button>
+        )}
+      </Content>
+    </ScrollScreenLayout>
   );
 }
 
