@@ -28,7 +28,7 @@ export interface WeatherInfoResponse {
   timezone: string;
 }
 
-async function requestWeatherInfo(coords: Coords) {
+async function getWeatherInfo(coords: Coords) {
   const weatherInfoUrl = `${openWeatherMapConfig.url}?lat=${coords.latitude}&lon=${coords.longitude}&appid=${openWeatherMapConfig.key}&lang=pt_br&units=metric`;
 
   return fetch(weatherInfoUrl)
@@ -63,4 +63,4 @@ async function requestWeatherInfo(coords: Coords) {
     });
 }
 
-export default requestWeatherInfo;
+export default getWeatherInfo;
