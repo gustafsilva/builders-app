@@ -3,31 +3,6 @@ import { handleGenericError } from "core/helpers/errors";
 
 import openWeatherMapConfig from "features/weather/configs/openWeatherMapConfig";
 
-export interface WeatherInfoResponse {
-  region: {
-    country: string;
-    city: string;
-  };
-  weather: {
-    id: number;
-    description: string;
-  };
-  main: {
-    temp: number;
-    feelsLike: number;
-    tempMin: number;
-    tempMax: number;
-    pressure: number;
-    humidity: number;
-  };
-  visibility: number;
-  wind: {
-    speed: number;
-  };
-  clouds: number;
-  timezone: string;
-}
-
 async function getWeatherInfo(coords: Coords) {
   const weatherInfoUrl = `${openWeatherMapConfig.url}?lat=${coords.latitude}&lon=${coords.longitude}&appid=${openWeatherMapConfig.key}&lang=pt_br&units=metric`;
 
