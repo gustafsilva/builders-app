@@ -1,7 +1,7 @@
 import React from "react";
-import { LocationObject } from "expo-location";
 import CountryFlag from "react-native-country-flag";
 
+import Coords from "core/types/coords";
 import LinearGradientContainer from "core/components/LinearGradientContainer";
 import Container from "core/components/Container";
 import Box from "core/components/Box";
@@ -13,10 +13,10 @@ import WeatherIcon from "features/weather/components/WeatherIcon";
 import { BottomSheet } from "./WeatherBottomSheet.styles";
 
 interface WeatherBottomSheetProps {
-  location: LocationObject;
+  coords: Coords;
 }
 
-function WeatherBottomSheet({ location }: WeatherBottomSheetProps) {
+function WeatherBottomSheet({ coords }: WeatherBottomSheetProps) {
   const bottomSheetRef = React.useRef(null);
   const { weatherInfo, loading, getWeatherInfo } = useWeatherInfo();
 
@@ -25,10 +25,10 @@ function WeatherBottomSheet({ location }: WeatherBottomSheetProps) {
       return;
     }
 
-    if (weatherInfo === null && location) {
-      getWeatherInfo(location.coords);
+    if (weatherInfo === null && coords) {
+      getWeatherInfo(coords);
     }
-  }, [getWeatherInfo, loading, location, weatherInfo]);
+  }, [getWeatherInfo, loading, coords, weatherInfo]);
 
   if (loading || weatherInfo === null) {
     return null;

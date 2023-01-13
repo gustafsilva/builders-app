@@ -1,21 +1,21 @@
 import React from "react";
 import { MapViewProps } from "react-native-maps";
-import { LocationObject } from "expo-location";
+
+import Coords from "core/types/coords";
 
 import { MapView } from "./Map.styles";
 
 interface MapProps extends MapViewProps {
-  location: LocationObject;
+  coords: Coords;
 }
 
 function Map(props: MapProps) {
-  const { location } = props;
+  const { coords } = props;
 
   return (
     <MapView
       region={{
-        latitude: location.coords.latitude,
-        longitude: location.coords.longitude,
+        ...coords,
         latitudeDelta: 0.08,
         longitudeDelta: 0.04,
       }}
