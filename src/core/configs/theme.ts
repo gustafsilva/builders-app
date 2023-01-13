@@ -1,11 +1,9 @@
 import { CreateThemeOptions, createTheme } from "@rneui/themed";
 
+import { DARK_COLORS } from "./colors";
+
 const theme: CreateThemeOptions = createTheme({
-  lightColors: {},
-  darkColors: {
-    primary: "#7F4CD2",
-    secondary: "#FFCF0D",
-  },
+  darkColors: DARK_COLORS,
   mode: "dark",
 });
 
