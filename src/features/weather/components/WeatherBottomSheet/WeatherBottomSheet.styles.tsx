@@ -4,7 +4,7 @@ import theme from "core/configs/theme";
 
 export const BottomSheet = Styled(BottomSheetGH).attrs({
   index: 1,
-  snapPoints: ["20%", "40%"],
+  snapPoints: ["20%", "38%"],
   backgroundStyle: {
     backgroundColor: "#622FB5",
   },
