@@ -1,6 +1,8 @@
 import { action, makeAutoObservable, observable } from "mobx";
+import { getCurrentPositionAsync } from "expo-location";
 
 import Coords from "core/types/coords";
+import { handleGenericError } from "core/helpers/errors";
 
 class CurrentPositionState {
   coords: Coords | null = null;
@@ -21,6 +23,22 @@ class CurrentPositionState {
 
   setLoading(loading: boolean) {
     this.loading = loading;
+  }
+
+  async refresh() {
+    try {
+      this.setLoading(true);
+      const position = await getCurrentPositionAsync();
+      this.setCoords({
+        latitude: position.coords.latitude,
+        longitude: position.coords.longitude,
+      });
+    } catch (error) {
+      this.setCoords(null);
+      handleGenericError(error);
+    } finally {
+      this.setLoading(false);
+    }
   }
 }
 
