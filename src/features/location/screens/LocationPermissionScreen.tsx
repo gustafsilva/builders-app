@@ -9,7 +9,7 @@ import Box from "core/components/Box";
 import Text from "core/components/Text";
 import Button from "core/components/Button";
 
-import LocationPermissionImage from "features/locations/components/LocationPermissionImage";
+import LocationPermissionImage from "features/location/components/LocationPermissionImage";
 
 interface LocationPermissionScreenProps {
   status: PermissionStatus;

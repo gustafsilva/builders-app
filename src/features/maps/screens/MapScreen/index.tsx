@@ -4,7 +4,7 @@ import LoadingScreen from "core/screens/LoadingScreen";
 import Container from "core/components/Container";
 
 import Map from "features/maps/components/Map";
-import useLocation from "features/locations/hooks/useLocation";
+import useLocation from "features/location/hooks/useLocation";
 import WeatherBottomSheet from "features/weather/components/WeatherBottomSheet";
 
 function MapScreen() {

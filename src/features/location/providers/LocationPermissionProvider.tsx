@@ -3,8 +3,8 @@ import { PermissionStatus } from "expo-location";
 
 import LoadingScreen from "core/screens/LoadingScreen";
 
-import useLocationPermission from "features/locations/hooks/useLocationPermission";
-import LocationPermissionScreen from "features/locations/screens/LocationPermissionScreen";
+import useLocationPermission from "features/location/hooks/useLocationPermission";
+import LocationPermissionScreen from "features/location/screens/LocationPermissionScreen";
 
 interface LocationPermissionProviderProps {
   children: React.ReactElement;
