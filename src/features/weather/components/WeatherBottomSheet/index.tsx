@@ -13,15 +13,25 @@ import WeatherBasicInfo from "features/weather/components/WeatherBasicInfo";
 import { BottomSheet } from "./WeatherBottomSheet.styles";
 
 const WeatherBottomSheet = observer(() => {
-  const { bottomSheetRef, weatherResumeStore, moreInfo, refresh } =
-    useWeatherBottomSheet();
+  const {
+    bottomSheetRef,
+    weatherResumeStore,
+    isOpen,
+    refresh,
+    moreInfo,
+    handleSheetChanges,
+  } = useWeatherBottomSheet();
 
   React.useEffect(() => {
     refresh();
   }, []);
 
+  const footerStyle = {
+    opacity: isOpen ? 1 : 0,
+  };
+
   return (
-    <BottomSheet ref={bottomSheetRef}>
+    <BottomSheet ref={bottomSheetRef} onChange={handleSheetChanges}>
       <LinearGradientContainer>
         <Container>
           {weatherResumeStore.loading || weatherResumeStore.info === null ? (
@@ -32,7 +42,13 @@ const WeatherBottomSheet = observer(() => {
             <Box ph="view" flex={1}>
               <WeatherBasicInfo />
 
-              <Box flex={1} mt={8} mb={32} justifyContent="flex-end">
+              <Box
+                flex={1}
+                mt={8}
+                mb={32}
+                justifyContent="flex-end"
+                customStyle={footerStyle}
+              >
                 <Button onPress={refresh} size="lg">
                   Atualizar
                 </Button>
