@@ -1,41 +1,52 @@
 import React from "react";
-import Styled from "styled-components";
-import { Text as TextRNE } from "@rneui/base";
+import { StyleSheet } from "react-native";
+import { Text as TextRNE, TextProps as TextPropsRNE } from "@rneui/base";
+import { useTheme } from "@rneui/themed";
 
-interface TextProps {
-  h1?: boolean;
-  h2?: boolean;
-  h3?: boolean;
-  h4?: boolean;
+import FONTS from "core/configs/FONTS.json";
 
-  children: string;
+interface TextProps extends TextPropsRNE {
+  label?: boolean;
 }
 
-const TextInner = Styled(TextRNE).attrs({
+function Text(props: TextProps) {
+  const { theme } = useTheme();
+
+  const customStyle = {
+    fontFamily: props.label === true ? FONTS.SEMI_BOLD : FONTS.REGULAR,
+    fontSize: props.label === true ? 14 : 16,
+    color: props.label === true ? theme.colors.secondary : theme.colors.black,
+  };
+
+  return (
+    <TextRNE
+      {...props}
+      h1Style={styles.h1Style}
+      h2Style={styles.h2Style}
+      h3Style={styles.h3Style}
+      h4Style={styles.h4Style}
+      style={customStyle}
+    />
+  );
+}
+
+const styles = StyleSheet.create({
   h1Style: {
-    fontFamily: "Poppins-SemiBold",
-    fontSize: 72,
+    fontFamily: FONTS.SEMI_BOLD,
+    fontSize: 48,
   },
   h2Style: {
-    fontFamily: "Poppins-SemiBold",
+    fontFamily: FONTS.SEMI_BOLD,
     fontSize: 32,
   },
   h3Style: {
-    fontFamily: "Poppins-SemiBold",
-    fontSize: 28,
+    fontFamily: FONTS.SEMI_BOLD,
+    fontSize: 24,
   },
   h4Style: {
-    fontFamily: "Poppins-SemiBold",
-    fontWeight: "500",
+    fontFamily: FONTS.SEMI_BOLD,
+    fontSize: 16,
   },
-})`
-  font-family: Poppins-Regular;
-  font-size: 16px;
-  color: white;
-`;
-
-function Text(props: TextProps) {
-  return <TextInner {...props} />;
-}
+});
 
 export default Text;
