@@ -1,8 +1,15 @@
 import Styled from "styled-components/native";
 import BottomSheetGH from "@gorhom/bottom-sheet";
+import theme from "core/configs/theme";
 
 export const BottomSheet = Styled(BottomSheetGH).attrs({
   index: 1,
-  snapPoints: ["16%", "50%"],
+  snapPoints: ["20%", "40%"],
+  backgroundStyle: {
+    backgroundColor: "#622FB5",
+  },
+  handleIndicatorStyle: {
+    backgroundColor: theme.darkColors?.secondary,
+  },
 })`
 `;
