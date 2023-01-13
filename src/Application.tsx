@@ -1,15 +1,17 @@
 import React from "react";
 
 import AppProvider from "core/providers/AppProvider";
+
 import MainStackNavigator from "navigations/MainStackNavigator";
-import LocationPermissionProvider from "features/location/providers/LocationPermissionProvider";
+
+import LocationProvider from "features/location/providers/LocationProvider";
 
 function Application() {
   return (
     <AppProvider>
-      <LocationPermissionProvider>
+      <LocationProvider>
         <MainStackNavigator />
-      </LocationPermissionProvider>
+      </LocationProvider>
     </AppProvider>
   );
 }
