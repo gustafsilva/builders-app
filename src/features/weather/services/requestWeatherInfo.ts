@@ -1,11 +1,7 @@
+import Coords from "core/types/coords";
 import { handleGenericError } from "core/helpers/errors";
 
 import openWeatherMapConfig from "features/weather/configs/openWeatherMapConfig";
-
-export interface Coords {
-  latitude: number;
-  longitude: number;
-}
 
 export interface WeatherInfoResponse {
   region: {
