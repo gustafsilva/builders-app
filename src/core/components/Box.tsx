@@ -26,6 +26,9 @@ interface BoxProps extends ViewProps {
   pv?: Spacing;
   ph?: Spacing;
 
+  border?: Spacing;
+  borderRadius?: Spacing;
+
   justifyContent?:
     | "flex-start"
     | "flex-end"
@@ -61,6 +64,9 @@ function Box(props: BoxProps) {
     paddingLeft: calculateSpacing(props.pl),
     paddingVertical: calculateSpacing(props.pv),
     paddingHorizontal: calculateSpacing(props.ph),
+
+    borderWidth: calculateSpacing(props.border),
+    borderRadius: calculateSpacing(props.borderRadius),
 
     justifyContent: props.justifyContent,
     alignItems: props.alignItems,
