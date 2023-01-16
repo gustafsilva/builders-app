@@ -4,14 +4,59 @@ import { observer } from "mobx-react-lite";
 import ScrollScreenLayout from "core/layouts/ScrollScreenLayout";
 import Content from "core/components/Content";
 import Box from "core/components/Box";
-import Text from "core/components/Text";
 import Button from "core/components/Button";
 
 import useWeatherResume from "features/weather/hooks/useWeatherResume";
 import WeatherBasicInfo from "features/weather/components/WeatherBasicInfo";
+import WeatherResumeItem from "features/weather/components/WeatherResumeItem";
 
 const WeatherResumeScreen = observer(() => {
   const { weatherResumeStore, refresh } = useWeatherResume();
+
+  const infos = React.useMemo(() => {
+    if (weatherResumeStore.info === null) {
+      return null;
+    }
+
+    return [
+      [
+        {
+          title: "Pressão",
+          icon: "speedometer-medium",
+          description: `${weatherResumeStore.info.main.pressure}hPa`,
+        },
+        {
+          title: "Sensação térmica",
+          icon: "thermometer",
+          description: `${weatherResumeStore.info.main.feelsLike.toFixed(0)}°C`,
+        },
+      ],
+      [
+        {
+          title: "Umidade",
+          icon: "water-outline",
+          description: `${weatherResumeStore.info.main.humidity}%`,
+        },
+        {
+          title: "Nebulosidade",
+          icon: "weather-cloudy",
+          description: `${weatherResumeStore.info.clouds}%`,
+        },
+      ],
+      [
+        {
+          title: "Vento",
+          icon: "weather-windy",
+          description: `${weatherResumeStore.info.wind.speed}m/s`,
+        },
+        {
+          title: "Visibilidade",
+          icon: "eye",
+          description: `${weatherResumeStore.info.visibility}km`,
+        },
+      ],
+    ];
+  }, [weatherResumeStore.info]);
 
   return (
     <ScrollScreenLayout
@@ -23,37 +68,20 @@ const WeatherResumeScreen = observer(() => {
           <WeatherBasicInfo />
 
           <Box flex={1}>
-            <Box direction="row" mt={32}>
-              <Box flex={1}>
-                <Text label>Pressão</Text>
-                <Text>{`${weatherResumeStore.info.main.pressure}hPa`}</Text>
+            {infos?.map((info, key) => (
+              <Box direction="row" mt={16} key={key}>
+                <WeatherResumeItem
+                  title={info[0].title}
+                  icon={info[0].icon}
+                  description={info[0].description}
+                />
+                <WeatherResumeItem
+                  title={info[1].title}
+                  icon={info[1].icon}
+                  description={info[1].description}
+                />
               </Box>
-              <Box justifyContent="center" alignItems="center">
-                <Text label>Sensação térmica</Text>
-                <Text>{`${weatherResumeStore.info.main.feelsLike.toFixed(
-                  0
-                )}°C`}</Text>
-              </Box>
-              <Box flex={1} justifyContent="flex-end" alignItems="flex-end">
-                <Text label>Umidade</Text>
-                <Text>{`${weatherResumeStore.info.main.humidity}%`}</Text>
-              </Box>
-            </Box>
-
-            <Box direction="row" mt={16}>
-              <Box flex={1}>
-                <Text label>Nebulosidade</Text>
-                <Text>{`${weatherResumeStore.info.clouds}%`}</Text>
-              </Box>
-              <Box justifyContent="center" alignItems="center">
-                <Text label>Vento</Text>
-                <Text>{`${weatherResumeStore.info.wind.speed}m/s`}</Text>
-              </Box>
-              <Box flex={1} justifyContent="flex-end" alignItems="flex-end">
-                <Text label>Visibilidade</Text>
-                <Text>{`${weatherResumeStore.info.visibility}km`}</Text>
-              </Box>
-            </Box>
+            ))}
           </Box>
 
           <Button onPress={refresh} size="lg">
