@@ -8,8 +8,8 @@ function useWeatherResume() {
   const { currentPositionStore } = useLocationStore();
   const { weatherResumeStore } = useWeatherStore();
 
-  const refresh = React.useCallback(() => {
-    weatherResumeStore.refresh(currentPositionStore);
+  const refresh = React.useCallback(async () => {
+    await weatherResumeStore.refresh(currentPositionStore);
   }, [currentPositionStore]);
 
   return React.useMemo(
