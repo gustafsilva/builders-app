@@ -35,7 +35,7 @@ const WeatherBottomSheet = observer(() => {
       <LinearGradientContainer>
         <Container>
           {weatherResumeStore.loading || weatherResumeStore.info === null ? (
-            <Box flex={1} justifyContent="center" alignItems="center">
+            <Box flex={1} alignItems="center" mt={24}>
               <Spinner />
             </Box>
           ) : (
