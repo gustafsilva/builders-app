@@ -3,6 +3,7 @@
   "compilerOptions": {
     "strict": true,
     "module": "es6",
-    "baseUrl": "./src"
+    "baseUrl": "./src",
+    "rootDir": "./"
   }
 }

@@ -41,6 +41,14 @@ Verifique se os arquivos fornecidos estão formatados
 
 Formata os arquivos utilizando o prettier.
 
+### `yarn test`
+
+Executa os testes unitários.
+
+### `yarn cover`
+
+Coleta e relata a cobertura de código.
+
 ## Principais libs/plataformas utilizadas
 
 - [TypeScript](https://www.typescriptlang.org/)
