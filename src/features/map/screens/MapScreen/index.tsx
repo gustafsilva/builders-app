@@ -1,4 +1,5 @@
 import React from "react";
+import { StatusBar } from "expo-status-bar";
 import { observer } from "mobx-react-lite";
 
 import Container from "core/components/Container";
@@ -18,6 +19,7 @@ const MapScreen = observer(() => {
     <Container>
       <Map coords={currentPositionStore.coords} />
       <WeatherBottomSheet />
+      <StatusBar style="dark" />
     </Container>
   );
 });
