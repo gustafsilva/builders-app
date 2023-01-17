@@ -1,13 +1,16 @@
-export type SpacingInNumber = number | undefined;
+export const VIEW_DEFAULT = 24;
+export const CARD_DEFAULT = 16;
 
-export type Spacing = SpacingInNumber | "view" | "card" | string;
+export type SpacingInNumber = number | undefined | "view" | "card";
 
-export function calculateSpacingInNumber(spacing: Spacing) {
+export type Spacing = SpacingInNumber | string;
+
+export function calculateSpacingInNumber(spacing: SpacingInNumber) {
   if (spacing === "view") {
-    return 24;
+    return VIEW_DEFAULT;
   }
   if (spacing === "card") {
-    return 16;
+    return CARD_DEFAULT;
   }
   if (typeof spacing === "number") {
     return spacing;
@@ -17,10 +20,13 @@ export function calculateSpacingInNumber(spacing: Spacing) {
 }
 
 export function calculateSpacing(spacing: Spacing) {
-  const spacingInNumber = calculateSpacingInNumber(spacing);
-  if (spacingInNumber !== undefined) {
-    return spacingInNumber;
+  if (typeof spacing === "string" && spacing !== "view" && spacing !== "card") {
+    const isPercentage = spacing[spacing.length - 1] === "%";
+    if (!isPercentage) {
+      throw new Error(`Spacing invalid: ${spacing}`);
+    }
+    return spacing;
   }
 
-  return spacing;
+  return calculateSpacingInNumber(spacing);
 }

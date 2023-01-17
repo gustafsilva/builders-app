@@ -9,6 +9,7 @@ import {
 
 import {
   Spacing,
+  SpacingInNumber,
   calculateSpacing,
   calculateSpacingInNumber,
 } from "core/helpers/spacing";
@@ -32,8 +33,8 @@ interface BoxProps extends ViewProps {
 
   height?: Spacing | string;
   width?: Spacing | string;
-  border?: Spacing;
-  borderRadius?: Spacing;
+  border?: SpacingInNumber;
+  borderRadius?: SpacingInNumber;
   opacity?: number;
 
   justifyContent?:
