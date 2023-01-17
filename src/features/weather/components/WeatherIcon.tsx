@@ -4,9 +4,10 @@ import { useTheme } from "@rneui/themed";
 
 interface WeatherIconProps {
   id: number;
+  size?: "large" | "small";
 }
 
-function WeatherIcon({ id }: WeatherIconProps) {
+function WeatherIcon({ id, size = "large" }: WeatherIconProps) {
   const { theme } = useTheme();
 
   // More info about Weather ID: https://openweathermap.org/weather-conditions
@@ -46,7 +47,7 @@ function WeatherIcon({ id }: WeatherIconProps) {
   return (
     <MaterialCommunityIcons
       name={name}
-      size={80}
+      size={size && size === "small" ? 40 : 80}
       color={theme.colors.secondary}
     />
   );
