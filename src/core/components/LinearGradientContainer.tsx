@@ -1,6 +1,7 @@
 import React from "react";
 import { StyleSheet } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
+import { StatusBar } from "expo-status-bar";
 import { useTheme } from "@rneui/themed";
 
 interface LinearGradientContainerProps {
@@ -16,6 +17,7 @@ function LinearGradientContainer({ children }: LinearGradientContainerProps) {
       style={styles.container}
     >
       {children}
+      <StatusBar style="light" />
     </LinearGradient>
   );
 }
