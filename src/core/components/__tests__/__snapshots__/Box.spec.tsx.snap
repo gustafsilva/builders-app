@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`🫀 Core | 🧩 Components | 📦 <Box> should render correctly 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": undefined,
+      "backgroundColor": undefined,
+      "borderRadius": undefined,
+      "borderWidth": undefined,
+      "flex": undefined,
+      "flexDirection": undefined,
+      "height": undefined,
+      "justifyContent": undefined,
+      "margin": undefined,
+      "marginBottom": undefined,
+      "marginHorizontal": undefined,
+      "marginLeft": undefined,
+      "marginRight": undefined,
+      "marginTop": undefined,
+      "marginVertical": undefined,
+      "opacity": undefined,
+      "padding": undefined,
+      "paddingBottom": undefined,
+      "paddingHorizontal": undefined,
+      "paddingLeft": undefined,
+      "paddingRight": undefined,
+      "paddingTop": undefined,
+      "paddingVertical": undefined,
+      "width": undefined,
+    }
+  }
+  testID="box"
+>
+  <Text>
+    Box Children
+  </Text>
+</View>
+`;

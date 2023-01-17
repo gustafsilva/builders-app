@@ -1,0 +1,151 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`🫀 Core | 🧩 Components | 🖲️ <Button> | Outline Button should render correctly 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "overflow": "hidden",
+      },
+      Object {
+        "borderRadius": 2,
+      },
+      undefined,
+      false,
+    ]
+  }
+  testID="RNE_BUTTON_WRAPPER"
+>
+  <View
+    accessibilityRole="button"
+    accessibilityState={
+      Object {
+        "busy": false,
+        "disabled": false,
+      }
+    }
+    accessible={true}
+    collapsable={false}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "opacity": 1,
+      }
+    }
+    testID="BUTTON_OUTLINE"
+  >
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "rgba(0,0,0,0)",
+          "borderColor": "#FFCF0D",
+          "borderRadius": 16,
+          "borderWidth": 0.8,
+          "flexDirection": "row",
+          "justifyContent": "center",
+          "padding": 8,
+          "paddingHorizontal": 10,
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "#FFCF0D",
+            "fontFamily": "Poppins-SemiBold",
+            "fontSize": 18,
+            "paddingVertical": 1,
+            "textAlign": "center",
+            "textTransform": "uppercase",
+          }
+        }
+      >
+        Button Outline
+      </Text>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`🫀 Core | 🧩 Components | 🖲️ <Button> | Solid Button should render correctly 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "overflow": "hidden",
+      },
+      Object {
+        "borderRadius": 2,
+      },
+      undefined,
+      false,
+    ]
+  }
+  testID="RNE_BUTTON_WRAPPER"
+>
+  <View
+    accessibilityRole="button"
+    accessibilityState={
+      Object {
+        "busy": false,
+        "disabled": false,
+      }
+    }
+    accessible={true}
+    collapsable={false}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "opacity": 1,
+      }
+    }
+    testID="BUTTON_PRIMARY"
+  >
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#7F4CD2",
+          "borderColor": "#FFCF0D",
+          "borderRadius": 16,
+          "borderWidth": 0,
+          "flexDirection": "row",
+          "justifyContent": "center",
+          "padding": 8,
+          "paddingHorizontal": 10,
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "#FFFFFF",
+            "fontFamily": "Poppins-SemiBold",
+            "fontSize": 18,
+            "paddingVertical": 1,
+            "textAlign": "center",
+            "textTransform": "uppercase",
+          }
+        }
+      >
+        Button Primary
+      </Text>
+    </View>
+  </View>
+</View>
+`;
