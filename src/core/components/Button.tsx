@@ -5,6 +5,8 @@ import {
 } from "@rneui/base";
 import { useTheme } from "@rneui/themed";
 
+export const OUTLINE_BUTTON_BACKGROUND_COLOR_DEFAULT = "rgba(0,0,0,0)";
+
 interface ButtonProps extends ButtonPropsRNE {}
 
 function Button(props: ButtonProps) {
@@ -12,7 +14,9 @@ function Button(props: ButtonProps) {
 
   const buttonStyle = {
     backgroundColor:
-      props.type === "outline" ? "rgba(0,0,0,0)" : theme.colors.primary,
+      props.type === "outline"
+        ? OUTLINE_BUTTON_BACKGROUND_COLOR_DEFAULT
+        : theme.colors.primary,
     borderRadius: 16,
     borderColor: theme.colors.secondary,
     borderWidth: props.type === "outline" ? 0.8 : 0,
