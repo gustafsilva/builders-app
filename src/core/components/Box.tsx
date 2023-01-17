@@ -7,7 +7,11 @@ import {
   ViewStyle,
 } from "react-native";
 
-import { Spacing, calculateSpacing } from "core/helpers/spacing";
+import {
+  Spacing,
+  calculateSpacing,
+  calculateSpacingInNumber,
+} from "core/helpers/spacing";
 
 interface BoxProps extends ViewProps {
   m?: Spacing;
@@ -26,8 +30,11 @@ interface BoxProps extends ViewProps {
   pv?: Spacing;
   ph?: Spacing;
 
+  height?: Spacing | string;
+  width?: Spacing | string;
   border?: Spacing;
   borderRadius?: Spacing;
+  opacity?: number;
 
   justifyContent?:
     | "flex-start"
@@ -65,8 +72,11 @@ function Box(props: BoxProps) {
     paddingVertical: calculateSpacing(props.pv),
     paddingHorizontal: calculateSpacing(props.ph),
 
-    borderWidth: calculateSpacing(props.border),
-    borderRadius: calculateSpacing(props.borderRadius),
+    height: calculateSpacing(props.height),
+    width: calculateSpacing(props.width),
+    borderWidth: calculateSpacingInNumber(props.border),
+    borderRadius: calculateSpacingInNumber(props.borderRadius),
+    opacity: calculateSpacingInNumber(props.opacity),
 
     justifyContent: props.justifyContent,
     alignItems: props.alignItems,
