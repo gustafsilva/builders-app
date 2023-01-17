@@ -13,7 +13,7 @@ function LoadingScreen() {
     <LinearGradientContainer>
       <ScrollContainer>
         <Box flex={1} justifyContent="center" alignItems="center">
-          <Spinner color={theme.colors.secondary} size="large" />
+          <Spinner color={theme.colors.secondary} />
         </Box>
       </ScrollContainer>
     </LinearGradientContainer>
