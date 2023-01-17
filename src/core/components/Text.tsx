@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet } from "react-native";
+import { StyleProp, StyleSheet, TextStyle } from "react-native";
 import { Text as TextRNE, TextProps as TextPropsRNE } from "@rneui/base";
 import { useTheme } from "@rneui/themed";
 
@@ -7,13 +7,18 @@ import FONTS from "core/configs/FONTS.json";
 
 interface TextProps extends TextPropsRNE {
   label?: boolean;
+  bold?: boolean;
+  customStyle?: StyleProp<TextStyle>;
 }
 
 function Text(props: TextProps) {
   const { theme } = useTheme();
 
-  const customStyle = {
-    fontFamily: props.label === true ? FONTS.SEMI_BOLD : FONTS.REGULAR,
+  const style = {
+    fontFamily:
+      props.label === true || props.bold === true
+        ? FONTS.SEMI_BOLD
+        : FONTS.REGULAR,
     fontSize: props.label === true ? 14 : 16,
     color: props.label === true ? theme.colors.secondary : theme.colors.black,
   };
@@ -25,7 +30,7 @@ function Text(props: TextProps) {
       h2Style={styles.h2Style}
       h3Style={styles.h3Style}
       h4Style={styles.h4Style}
-      style={customStyle}
+      style={[style, props.customStyle]}
     />
   );
 }
