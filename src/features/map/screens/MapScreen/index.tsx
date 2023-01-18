@@ -1,12 +1,12 @@
 import React from "react";
-import { StatusBar } from "expo-status-bar";
 import { observer } from "mobx-react-lite";
 
-import Container from "core/components/Container";
+import GenericScreenLayout from "core/layouts/GenericScreenLayout";
 
 import Map from "features/map/components/Map";
-import WeatherBottomSheet from "features/weather/components/WeatherBottomSheet";
+
 import { useLocationStore } from "features/location/store";
+import WeatherBottomSheet from "features/weather/components/WeatherBottomSheet";
 
 const MapScreen = observer(() => {
   const { currentPositionStore } = useLocationStore();
@@ -16,11 +16,12 @@ const MapScreen = observer(() => {
   }, []);
 
   return (
-    <Container>
-      <Map coords={currentPositionStore.coords} />
-      <WeatherBottomSheet />
-      <StatusBar style="dark" />
-    </Container>
+    <GenericScreenLayout statusBarStyle="dark" safeArea={false}>
+      <React.Fragment>
+        <Map coords={currentPositionStore.coords} />
+        <WeatherBottomSheet />
+      </React.Fragment>
+    </GenericScreenLayout>
   );
 });
 
