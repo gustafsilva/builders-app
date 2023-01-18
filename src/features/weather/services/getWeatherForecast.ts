@@ -1,3 +1,5 @@
+import moment from "moment";
+
 import Coords from "core/types/coords";
 import { handleGenericError } from "core/helpers/errors";
 
@@ -17,13 +19,19 @@ async function getWeatherForecast(
         (forecast: any) =>
           ({
             id: Number(forecast.weather[0].id),
-            date: new Date(forecast.dt_txt),
+            date: moment(forecast.dt_txt),
+            description: forecast.weather[0].description,
             temp: Number(forecast.main.temp),
             tempMin: Number(forecast.main.temp_min),
             tempMax: Number(forecast.main.temp_max),
           } as WeatherForest)
       )
     )
+    .then((res) => {
+      // console.log('[GusLog] getWeatherForecast:\n', JSON.stringify(res))
+
+      return res;
+    })
     .catch((error) => {
       handleGenericError(error);
       return null;

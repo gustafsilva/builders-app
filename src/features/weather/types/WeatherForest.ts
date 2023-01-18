@@ -1,6 +1,9 @@
+import { Moment } from "moment";
+
 interface WeatherForest {
   id: number;
-  date: Date;
+  date: Moment;
+  description: string;
   temp: number;
   tempMin: number;
   tempMax: number;
