@@ -1,54 +1,36 @@
 import React from "react";
-import { useTheme } from "@rneui/themed";
-import { TouchableOpacity } from "react-native-gesture-handler";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
-import { useNavigation } from "@react-navigation/native";
+import { ScrollView } from "react-native-gesture-handler";
 
-import LoadingScreen from "core/screens/LoadingScreen";
-import ScrollContainer from "core/components/ScrollContainer";
+import GenericScreenLayout, {
+  GenericScreenLayoutProps,
+} from "core/layouts/GenericScreenLayout";
+import Container from "core/components/Container";
 import LinearGradientContainer from "core/components/LinearGradientContainer";
-import SafeAreaContainer from "core/components/SafeAreaContainer";
-import Box from "core/components/Box";
 
-interface ScrollScreenLayoutProps {
-  loading?: boolean;
-  headerShown?: boolean;
-  children: React.ReactNode;
+interface ScrollScreenLayoutProps extends GenericScreenLayoutProps {
+  flexGrow?: number;
+  noBackgroundColor?: boolean;
 }
 
 function ScrollScreenLayout({
-  loading,
-  headerShown,
-  children,
+  noBackgroundColor = false,
+  flexGrow = 0,
+  ...props
 }: ScrollScreenLayoutProps) {
-  const { theme } = useTheme();
-  const navigation = useNavigation();
+  const contentContainerStyle = {
+    flexGrow,
+  };
 
-  const goBack = () => navigation.goBack();
-
-  if (loading) {
-    return <LoadingScreen />;
-  }
+  const ExternalContainer = noBackgroundColor
+    ? Container
+    : LinearGradientContainer;
 
   return (
-    <LinearGradientContainer>
-      <ScrollContainer>
-        <SafeAreaContainer>
-          {headerShown && (
-            <Box mt="view" ml="card">
-              <TouchableOpacity onPress={goBack}>
-                <MaterialCommunityIcons
-                  name="arrow-left"
-                  size={24}
-                  color={theme.colors.black}
-                />
-              </TouchableOpacity>
-            </Box>
-          )}
-          {children}
-        </SafeAreaContainer>
-      </ScrollContainer>
-    </LinearGradientContainer>
+    <ExternalContainer>
+      <ScrollView contentContainerStyle={contentContainerStyle}>
+        <GenericScreenLayout {...props} />
+      </ScrollView>
+    </ExternalContainer>
   );
 }
 
