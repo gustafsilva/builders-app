@@ -3,6 +3,7 @@ import { StyleSheet } from "react-native";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { NavigationContainer } from "@react-navigation/native";
 import { ThemeProvider } from "@rneui/themed";
+import { SafeAreaProvider } from "react-native-safe-area-context";
 
 import theme from "core/configs/theme";
 import FontsProvider from "core/providers/FontsProvider";
@@ -16,7 +17,9 @@ function AppProvider({ children }: AppProviderProps) {
     <GestureHandlerRootView style={styles.container}>
       <ThemeProvider theme={theme}>
         <FontsProvider>
-          <NavigationContainer>{children}</NavigationContainer>
+          <NavigationContainer>
+            <SafeAreaProvider>{children}</SafeAreaProvider>
+          </NavigationContainer>
         </FontsProvider>
       </ThemeProvider>
     </GestureHandlerRootView>
