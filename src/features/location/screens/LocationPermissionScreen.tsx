@@ -12,11 +12,13 @@ import LocationPermissionImage from "features/location/components/LocationPermis
 interface LocationPermissionScreenProps {
   status: PermissionStatus;
   requestLocationPermission: () => void;
+  loading?: boolean;
 }
 
 function LocationPermissionScreen({
   status,
   requestLocationPermission,
+  loading = false,
 }: LocationPermissionScreenProps) {
   const title =
     status === PermissionStatus.DENIED
@@ -28,7 +30,7 @@ function LocationPermissionScreen({
       : "☀️ Sua localização ajuda nosso sistema a mapear seu endereço atual e os dados climáticos da sua região.";
 
   return (
-    <ScrollScreenLayout>
+    <ScrollScreenLayout flexGrow={1} loading={loading}>
       <Content>
         <Box justifyContent="center" alignItems="center">
           <LocationPermissionImage />

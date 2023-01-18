@@ -1,8 +1,6 @@
 import React from "react";
 import { PermissionStatus } from "expo-location";
 
-import LoadingScreen from "core/screens/LoadingScreen";
-
 import useLocationPermission from "features/location/hooks/useLocationPermission";
 import LocationPermissionScreen from "features/location/screens/LocationPermissionScreen";
 
@@ -20,10 +18,6 @@ function LocationPermissionProvider({
     getLocationPermission();
   }, [getLocationPermission]);
 
-  if (loading) {
-    return <LoadingScreen />;
-  }
-
   if (status === PermissionStatus.GRANTED) {
     return children;
   }
@@ -32,6 +26,7 @@ function LocationPermissionProvider({
     <LocationPermissionScreen
       status={status}
       requestLocationPermission={requestLocationPermission}
+      loading={loading}
     />
   );
 }
