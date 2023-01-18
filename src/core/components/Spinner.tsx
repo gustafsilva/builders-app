@@ -29,7 +29,9 @@ const Spinner = React.memo(({ color, size = 48 }: SpinnerProps) => {
   });
 
   return (
-    <Animated.View style={{ transform: [{ rotate: spin }] }}>
+    <Animated.View
+      style={[{ height: size, width: size }, { transform: [{ rotate: spin }] }]}
+    >
       <MaterialCommunityIcons
         name="weather-sunny"
         size={size}
