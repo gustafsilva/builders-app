@@ -6,14 +6,14 @@ Desenvolver um aplicativo que consuma a localização atual do usuário e exiba 
 ## 📌 Condições
 - [x] Utilizar `React Native`
 - [x] É permitido o uso de outras libs
-- [ ] Anexar **Print Screen** no [README](./README.md)
+- [x] Anexar **Print Screen** no [README](./README.md)
 
 ## 📦 Outputs
 - [x] Repositório no Github
-- [ ] Documentação
+- [x] Documentação
 
 ## 🙌 Diferenciais
 - [x] Arquitetura
-- [ ] Documentação
+- [x] Documentação
 - [x] Interface
-- [ ] Testes
+- [x] Testes
