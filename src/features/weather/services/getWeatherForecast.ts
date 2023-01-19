@@ -27,11 +27,6 @@ async function getWeatherForecast(
           } as WeatherForest)
       )
     )
-    .then((res) => {
-      // console.log('[GusLog] getWeatherForecast:\n', JSON.stringify(res))
-
-      return res;
-    })
     .catch((error) => {
       handleGenericError(error);
       return null;
