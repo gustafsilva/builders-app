@@ -3,8 +3,11 @@ import { useTheme } from "@rneui/themed";
 
 import Box from "core/components/Box";
 import Spinner from "core/components/Spinner";
+import { ViewProps } from "react-native";
 
-export interface GenericScreenLayoutContentProps {
+import LinearGradientContainer from "core/components/LinearGradientContainer";
+
+export interface GenericScreenLayoutContentProps extends ViewProps {
   loading?: boolean;
   children: React.ReactElement;
 }
@@ -17,9 +20,11 @@ function GenericScreenLayoutContent({
 
   if (loading) {
     return (
-      <Box flex={1} justifyContent="center" alignItems="center">
-        <Spinner color={theme.colors.secondary} />
-      </Box>
+      <LinearGradientContainer>
+        <Box flex={1} justifyContent="center" alignItems="center">
+          <Spinner color={theme.colors.secondary} />
+        </Box>
+      </LinearGradientContainer>
     );
   }
 

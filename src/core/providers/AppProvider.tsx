@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet } from "react-native";
+import { StyleSheet, ViewProps } from "react-native";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { NavigationContainer } from "@react-navigation/native";
 import { ThemeProvider } from "@rneui/themed";
@@ -8,13 +8,13 @@ import { SafeAreaProvider } from "react-native-safe-area-context";
 import theme from "core/configs/theme";
 import FontsProvider from "core/providers/FontsProvider";
 
-interface AppProviderProps {
+interface AppProviderProps extends ViewProps {
   children: React.ReactNode;
 }
 
-function AppProvider({ children }: AppProviderProps) {
+function AppProvider({ children, ...props }: AppProviderProps) {
   return (
-    <GestureHandlerRootView style={styles.container}>
+    <GestureHandlerRootView style={styles.container} {...props}>
       <ThemeProvider theme={theme}>
         <FontsProvider>
           <NavigationContainer>

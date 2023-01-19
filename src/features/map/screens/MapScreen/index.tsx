@@ -7,8 +7,9 @@ import Map from "features/map/components/Map";
 
 import { useLocationStore } from "features/location/store";
 import WeatherBottomSheet from "features/weather/components/WeatherBottomSheet";
+import { ViewProps } from "react-native";
 
-const MapScreen = observer(() => {
+const MapScreen = observer((props: ViewProps) => {
   const { currentPositionStore } = useLocationStore();
 
   React.useEffect(() => {
@@ -16,7 +17,7 @@ const MapScreen = observer(() => {
   }, []);
 
   return (
-    <GenericScreenLayout statusBarStyle="dark" safeArea={false}>
+    <GenericScreenLayout statusBarStyle="dark" safeArea={false} {...props}>
       <React.Fragment>
         <Map coords={currentPositionStore.coords} />
         <WeatherBottomSheet />

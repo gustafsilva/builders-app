@@ -1,0 +1,126 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`🫀 Core | 🖼️ Layouts | *️⃣ <GenericScreenLayout> | with header should render correctly 1`] = `
+<RNCSafeAreaView
+  edges={
+    Array [
+      "bottom",
+      "left",
+      "right",
+      "top",
+    ]
+  }
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+  testID="GenericScreenLayout"
+>
+  <View
+    ml="card"
+    mt="view"
+    style={
+      Object {
+        "alignItems": undefined,
+        "backgroundColor": undefined,
+        "borderRadius": undefined,
+        "borderWidth": undefined,
+        "flex": undefined,
+        "flexDirection": undefined,
+        "height": undefined,
+        "justifyContent": undefined,
+        "margin": undefined,
+        "marginBottom": undefined,
+        "marginHorizontal": undefined,
+        "marginLeft": 16,
+        "marginRight": undefined,
+        "marginTop": 24,
+        "marginVertical": undefined,
+        "opacity": undefined,
+        "padding": undefined,
+        "paddingBottom": undefined,
+        "paddingHorizontal": undefined,
+        "paddingLeft": undefined,
+        "paddingRight": undefined,
+        "paddingTop": undefined,
+        "paddingVertical": undefined,
+        "width": undefined,
+      }
+    }
+  >
+    <RNGestureHandlerButton
+      collapsable={false}
+      delayLongPress={600}
+      enabled={true}
+      exclusive={true}
+      handlerTag={2}
+      handlerType="NativeViewGestureHandler"
+      onGestureEvent={[Function]}
+      onGestureHandlerEvent={[Function]}
+      onGestureHandlerStateChange={[Function]}
+      onHandlerStateChange={[Function]}
+      rippleColor={0}
+      touchSoundDisabled={false}
+    >
+      <View
+        accessible={true}
+        collapsable={false}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+      >
+        <Text
+          allowFontScaling={false}
+          selectable={false}
+          style={
+            Array [
+              Object {
+                "color": "#FFFFFF",
+                "fontSize": 24,
+              },
+              undefined,
+              Object {
+                "fontFamily": "material-community",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              Object {},
+            ]
+          }
+        >
+          󰁍
+        </Text>
+      </View>
+    </RNGestureHandlerButton>
+  </View>
+  <Text>
+    Container Children
+  </Text>
+</RNCSafeAreaView>
+`;
+
+exports[`🫀 Core | 🖼️ Layouts | *️⃣ <GenericScreenLayout> | without header should render correctly 1`] = `
+<RNCSafeAreaView
+  edges={
+    Array [
+      "bottom",
+      "left",
+      "right",
+      "top",
+    ]
+  }
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+  testID="GenericScreenLayout"
+>
+  <Text>
+    Container Children
+  </Text>
+</RNCSafeAreaView>
+`;

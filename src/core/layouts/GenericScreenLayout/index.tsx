@@ -25,7 +25,7 @@ function GenericScreenLayout({
   const ExternalContainer = safeArea ? SafeAreaContainer : Container;
 
   return (
-    <ExternalContainer>
+    <ExternalContainer {...(props as any)}>
       {headerShown && <GenericScreenLayoutHeader />}
       <GenericScreenLayoutContent {...props} />
       <StatusBar style={statusBarStyle} />
